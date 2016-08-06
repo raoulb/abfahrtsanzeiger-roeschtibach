@@ -480,9 +480,7 @@ main = (function () {
 			refreshInterval,
 			function (data) {
 				filteredData = data.filter(function (x) {
-					return x.journey != null && x.journey.every(function (x) {
-						return !journeyExclusionsMap[x.station];
-					});
+					return true;
 				});
 				
 				updateTable();
