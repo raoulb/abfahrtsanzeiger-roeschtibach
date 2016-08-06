@@ -223,7 +223,17 @@ main = (function () {
 		var rowElements = [];
 		
 		function addRow(product, direction, departures) {
+			console.log([product, direction, departures]);
+			
+			// Line number.
 			var productName = fixProductName(product);
+			// Terminal station name.
+			var stationName = fixStationName(direction);
+			
+			if (stationName == 'Frankental') {
+				return;
+			}
+			
 			var productElement = createElement('span', 'linie', [createElement('span', '', productName)]);
 			
 			productElement.attr('linie', productName);
@@ -263,7 +273,7 @@ main = (function () {
 			
 			var cellElements = [
 				createElement('td', '', [productElement]),
-				createElement('td', '', [fixStationName(direction)]),
+				createElement('td', '', [stationName]),
 				createElement('td', '', departureElements)];
 			
 			rowElements.push(createElement('tr', '', cellElements));
